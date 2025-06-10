@@ -1,0 +1,48 @@
+{
+    "family": "pygreeting",
+    "containerDefinitions": [
+        {
+            "name": "pygreeting",
+            "image": "public.ecr.aws/t5q0y5r5/pygreeting:latest",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "pygreeting-5000-tcp",
+                    "containerPort": 5000,
+                    "hostPort": 5000,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "ulimits": [],
+            "healthCheck": {
+                "command": [
+                    "CMD-SHELL",
+                    "curl --location 'localhost:5000/health' || exit 1"
+                ],
+                "interval": 30,
+                "timeout": 5,
+                "retries": 3
+            },
+            "systemControls": []
+        }
+    ],
+    "volumes": [],
+    "placementConstraints": [],
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "3072",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "enableFaultInjection": false
+}
