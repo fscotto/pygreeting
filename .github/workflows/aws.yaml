@@ -34,4 +34,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: public.ecr.aws/${{ secrets.ECR_PUBLIC_ALIAS }}/${{ secrets.ECR_REPOSITORY }}:latest
+          tags: public.ecr.aws/t5q0y5r5/pygreeting:latest
